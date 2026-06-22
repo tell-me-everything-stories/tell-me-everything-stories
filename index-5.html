@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Short, true-to-life stories about family, marriage, work, and the moments that change how we see the people closest to us.">
+<title>Tell Me Everything — Real Stories, Told Straight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===================================================
+   Tell Me Everything — story site design system
+   =================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --navy: #243447;
+  --navy-deep: #1A2533;
+  --paper: #F1E8D8;
+  --paper-soft: #FAF6ED;
+  --ink: #2B2520;
+  --ink-soft: #6B6157;
+  --lamp: #E8A33D;
+  --rust: #C1502E;
+  --teal: #4A7A6E;
+  --plum: #9C5A8C;
+  --line: #DDD2BC;
+  --max: 1080px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* ===== Layout helpers ===== */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+.read { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== Header / Nav ===== */
+.site-header {
+  background: var(--navy);
+  color: var(--paper-soft);
+  padding: 20px 0;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--paper-soft);
+}
+.logo span { color: var(--lamp); }
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.nav-links a { text-decoration: none; color: var(--paper-soft); opacity: 0.85; transition: opacity .2s; }
+.nav-links a:hover, .nav-links a:focus-visible { opacity: 1; }
+
+/* ===== Hero ===== */
+.hero {
+  background: var(--navy);
+  color: var(--paper-soft);
+  padding: 64px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,163,61,0.35), transparent 70%);
+  top: -120px;
+  right: -80px;
+  pointer-events: none;
+}
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lamp);
+  margin: 0 0 16px;
+  position: relative;
+}
+.hero h1, .story-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+  margin: 0 0 20px;
+  max-width: 18ch;
+  position: relative;
+}
+.hero p.excerpt {
+  font-size: 18px;
+  max-width: 60ch;
+  color: #D9CFC1;
+  margin: 0 0 28px;
+  position: relative;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  background: var(--lamp);
+  color: var(--navy-deep);
+  padding: 12px 22px;
+  border-radius: 4px;
+  text-decoration: none;
+  position: relative;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover, .btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+
+/* ===== Ad slots ===== */
+.ad-slot {
+  margin: 40px auto;
+  max-width: var(--max);
+  padding: 0 24px;
+}
+.ad-slot--inline {
+  max-width: none;
+  padding: 0;
+  margin: 8px 0 32px;
+}
+.ad-slot__inner {
+  border: 1px dashed var(--line);
+  background: var(--paper-soft);
+  color: var(--ink-soft);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 28px;
+  border-radius: 4px;
+}
+
+/* ===== Story grid / cards ===== */
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 28px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.story-card {
+  position: relative;
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  padding: 28px 24px 24px;
+  text-decoration: none;
+  color: var(--ink);
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+  transition: transform .2s ease, box-shadow .2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.story-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 28px 28px 0 0;
+  border-color: var(--lamp) transparent transparent transparent;
+}
+.story-card:hover, .story-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(36,52,71,0.12);
+}
+.tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  width: fit-content;
+}
+.tag--family { color: var(--rust); }
+.tag--karma { color: var(--teal); }
+.tag--work { color: var(--navy); }
+.tag--marriage { color: var(--plum); }
+.tag--onlight { color: var(--paper-soft); border-color: var(--paper-soft); }
+
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+}
+.card-excerpt {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 0;
+  flex-grow: 1;
+}
+.card-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+/* ===== Story page ===== */
+.story-page-header {
+  background: var(--navy);
+  color: var(--paper-soft);
+  padding: 56px 0 48px;
+}
+.story-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #D9CFC1;
+  letter-spacing: 0.04em;
+  margin-top: 16px;
+}
+.story-body {
+  padding: 48px 0;
+  font-size: 19px;
+  line-height: 1.8;
+}
+.story-body p { margin: 0 0 24px; }
+.story-body p:first-of-type { font-size: 21px; }
+.story-body h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 40px 0 16px;
+}
+.story-body h2:first-child { margin-top: 0; }
+.drop-cap:first-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  font-weight: 600;
+  float: left;
+  line-height: 0.9;
+  padding-right: 10px;
+  padding-top: 4px;
+  color: var(--rust);
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: var(--navy-deep);
+  color: #B9AFA1;
+  padding: 40px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+.site-footer a { color: var(--paper-soft); text-decoration: none; }
+.site-footer a:hover, .site-footer a:focus-visible { text-decoration: underline; }
+.footer-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  flex-wrap: wrap;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .hero { padding: 48px 0 56px; }
+  .story-body { font-size: 18px; }
+  .story-page-header { padding: 40px 0 36px; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .story-card, .btn { transition: none; }
+}
+
+/* ===== Focus visibility ===== */
+a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--lamp);
+  outline-offset: 2px;
+}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="logo">Tell Me <span>Everything</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#stories">Stories</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Today's Story</p>
+    <h1>My Sister Stole My Inheritance, So I Stopped Being the Family ATM</h1>
+    <p class="excerpt">For twenty years I paid for everything and asked for nothing back. Then my father died, and I found out my sister had quietly written herself into everything that was supposed to be mine.</p>
+    <a href="story-example.html" class="btn">Read the full story &rarr;</a>
+  </div>
+</section>
+
+<div class="ad-slot">
+  <div class="ad-slot__inner">Ad space &mdash; paste your AdSense code here</div>
+</div>
+
+<main class="wrap" id="stories" style="padding: 24px 0 64px;">
+  <h2 class="section-title">More Stories</h2>
+  <div class="grid">
+
+    <a href="story-example.html" class="story-card">
+      <span class="tag tag--family">Family</span>
+      <h3 class="card-title">My Sister Stole My Inheritance, So I Stopped Being the Family ATM</h3>
+      <p class="card-excerpt">After my father's funeral, I learned my sister had spent years quietly making sure none of it would be mine.</p>
+      <span class="card-meta">7 min read</span>
+    </a>
+
+    <a href="story-2.html" class="story-card">
+      <span class="tag tag--karma">Karma</span>
+      <h3 class="card-title">The Neighbor Who Called Code Enforcement on Us Every Summer Finally Got a Visit Herself</h3>
+      <p class="card-excerpt">Six summers of complaints, inspections, and certified letters &mdash; until one tape measure changed everything.</p>
+      <span class="card-meta">5 min read</span>
+    </a>
+
+    <a href="story-3.html" class="story-card">
+      <span class="tag tag--work">Work</span>
+      <h3 class="card-title">My Boss Took Credit for My Idea in the Meeting, So I Made Sure It Never Happened Again</h3>
+      <p class="card-excerpt">I didn't say a word in the meeting. I just forwarded one email to the right person.</p>
+      <span class="card-meta">5 min read</span>
+    </a>
+
+    <a href="story-template.html" class="story-card">
+      <span class="tag tag--marriage">New</span>
+      <h3 class="card-title">Your Next Story Goes Here</h3>
+      <p class="card-excerpt">Duplicate story-template.html, drop in a new title and story, then add a card like this one pointing to it.</p>
+      <span class="card-meta">&mdash; min read</span>
+    </a>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#privacy">Privacy Policy</a></li>
+    </ul>
+    <p>&copy; 2026 Tell Me Everything. Stories are works of fiction inspired by everyday life.</p>
+  </div>
+</footer>
+
+</body>
+</html>
