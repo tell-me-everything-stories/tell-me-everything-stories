@@ -158,7 +158,7 @@ a { color: inherit; }
   padding: 0;
   margin: 8px 0 32px;
 }
-.ad-slot__inner {
+.ad-slot__inner { display: none; /* Remove this line after adding real AdSense code */
   border: 1px dashed var(--line);
   background: var(--paper-soft);
   color: var(--ink-soft);
@@ -261,10 +261,12 @@ a { color: inherit; }
   margin-top: 16px;
 }
 .story-body {
-  padding: 48px 0;
-  font-size: 19px;
-  line-height: 1.8;
+  padding: 48px 40px;
+  font-size: 20px;
+  line-height: 1.9;
+  font-weight: 400;
 }
+.story-body p:first-of-type { font-size: 20px; }
 .story-body p { margin: 0 0 24px; }
 .story-body p:first-of-type { font-size: 21px; }
 .story-body h2 {
@@ -275,14 +277,10 @@ a { color: inherit; }
 }
 .story-body h2:first-child { margin-top: 0; }
 .drop-cap:first-letter {
-  font-family: 'Fraunces', serif;
-  font-size: 64px;
-  font-weight: 600;
-  float: left;
-  line-height: 0.9;
-  padding-right: 10px;
-  padding-top: 4px;
-  color: var(--rust);
+  font-size: 20px;
+  font-weight: 400;
+  float: none;
+  color: inherit;
 }
 
 /* ===== Footer ===== */
@@ -322,6 +320,26 @@ a:focus-visible, .btn:focus-visible {
   outline-offset: 2px;
 }
 
+/* ===== Mobile reading fix ===== */
+@media (max-width: 768px) {
+  .read { padding: 0 28px !important; max-width: 100% !important; }
+  .wrap { padding: 0 28px !important; }
+  .story-body { font-size: 17px; line-height: 1.9; padding: 28px 0 !important; }
+  .story-body p { margin: 0 0 18px; }
+  .story-body h2 { font-size: 20px; margin: 32px 0 14px; }
+  .drop-cap:first-letter { font-size: 46px; }
+  .story-title { font-size: 24px !important; line-height: 1.2 !important; }
+  .story-page-header { padding: 32px 0 28px; }
+  .nav-links { gap: 16px; font-size: 13px; }
+  .logo { font-size: 20px; }
+  .grid { grid-template-columns: 1fr; }
+  .hero { padding: 40px 0 48px; }
+  .hero h1 { font-size: 26px; }
+  .hero p.excerpt { font-size: 16px; }
+  .site-footer { padding: 28px 0; }
+  article.read.story-body { padding-left: 28px !important; padding-right: 28px !important; }
+}
+
 </style>
 </head>
 <body>
@@ -339,50 +357,101 @@ a:focus-visible, .btn:focus-visible {
   <div class="read">
     <span class="tag tag--onlight">Family</span>
     <h1 class="story-title" style="margin-top:16px;">My Sister Stole My Inheritance, So I Stopped Being the Family ATM</h1>
-    <p class="story-meta">7 min read &middot; Family Drama</p>
+    <p class="story-meta">Episode 1 &middot; 18 min read &middot; Family &middot; Money &middot; Betrayal</p>
   </div>
 </section>
 
 <div class="ad-slot">
-  <div class="ad-slot__inner">Ad space &mdash; paste your AdSense code here</div>
+  <div class="ad-slot__inner">Ad space</div>
 </div>
 
 <article class="read story-body">
-  <p class="drop-cap">For twenty years, I was the one everyone in my family could count on. When Mom needed someone to sit with her during chemo, I rearranged my work schedule. When my niece needed braces and her dad "couldn't swing it that month," I quietly paid the orthodontist myself. When my younger sister Dana's marriage fell apart eight years ago, she moved into my spare room "just until she got back on her feet." She got back on her feet about three years ago. She never moved out.</p>
 
-  <p>I never kept score. That's not how I was raised. Our dad used to say that family takes care of family, full stop, no IOUs. I believed him. I lived by it.</p>
+<p class="drop-cap">For twenty years, I was the person in my family that everyone could count on. Not because I was asked to be, and not because anyone ever formally appointed me to the role. It simply happened the way certain things happen in families — gradually, then completely, until it was just the shape of things and nobody questioned it anymore. I was the one who showed up. I was the one who paid when money was short and helped when help was needed and absorbed the costs — financial and emotional and sometimes physical — of keeping a family functional. I did it because I believed in it. I did it because my father raised me to believe that family takes care of family, full stop, no ledger, no running tab of who owes what to whom.</p>
 
-  <p>Dad passed away in February, after a short illness none of us were really ready for. In the blur of the funeral and the casseroles and the sympathy cards, Dana was the one who stepped up to "handle the paperwork," since I was, in her words, "too busy with work to deal with all that." I was grateful, honestly. Grief makes you stupid, and I didn't want to think about banks and lawyers.</p>
+<p>My name is Caroline, and for twenty years I believed that my sister Dana operated by the same code.</p>
 
-  <p>Three weeks after the funeral, we sat down with Dad's attorney to go over the estate. I expected it to be simple. Dad's will, written years ago, split everything evenly between Dana and me &mdash; the house, his savings, his truck, all of it, fifty-fifty. That's what he'd always told us, and that's what the will said.</p>
+<p>I was wrong about that for a long time. And then, in the weeks after my father's funeral, I stopped being wrong about it very suddenly and all at once, the way you stop being wrong about something when the evidence becomes impossible to look away from.</p>
 
-  <div class="ad-slot ad-slot--inline">
-    <div class="ad-slot__inner">Ad space &mdash; paste your AdSense code here</div>
-  </div>
+<p>Let me tell you about my family first, because the money part only makes sense in context of the people.</p>
 
-  <p>Except the attorney had a strange look on his face as he slid a folder across the table. "There's something you should both be aware of," he said. "About four years ago, your father added Dana as a joint owner on his checking and savings accounts, and signed a transfer-on-death deed naming her as sole beneficiary of the house."</p>
+<p>My father, William, was a retired schoolteacher who had spent thirty-five years teaching eighth-grade history and genuinely loved every year of it. He was a gentle, patient man who believed deeply in fairness and in the idea that how you treat people when you have something they need tells you everything about your actual character. He and my mother had two daughters: me, Caroline, the older one, and Dana, who is four years younger and has always moved through life as though the ordinary rules of consequence were written for other people.</p>
 
-  <p>I looked at Dana. She didn't look surprised. She looked like someone who'd been waiting for this conversation and had already decided how it would go.</p>
+<p>My mother died when I was thirty-one and Dana was twenty-seven. That was the beginning of the shape I'm describing — the slow accumulation of responsibility that happens when a family loses its center. My father grieved in the quiet, internal way of men of his generation, and he kept functioning, but something in him went still after my mother died, and he needed more from us than he ever had before. I stepped into that need because it was there and because I was capable of meeting it. Dana stepped back from it because that was what Dana did.</p>
 
-  <p>"Dad wanted it that way," she said, not quite meeting my eyes. "He said it would be easier than splitting everything through probate. I was going to make sure you got your half. Eventually."</p>
+<p>Over the following years, I drove my father to his medical appointments — the quarterly checkups, the specialist visits, the two hospitalizations for chest issues that turned out to be less serious than they initially seemed. I handled the paperwork that confused him, called the insurance company when they denied claims, sat with him through the long winter evenings when the house was too quiet. I did his taxes for six years. I helped him when his roof needed repairs and when his furnace stopped working in January and when his car needed a repair he couldn't afford on his pension.</p>
 
-  <p>Eventually.</p>
+<p>Dana, during this same period, was living her life. Two relationships that ended badly. A string of jobs that each started with great enthusiasm and ended with explanations about how the management was toxic or the environment wasn't right for her. Three apartments in five years. A credit score that she mentioned once, laughing, as a punchline.</p>
 
-  <p>Here's what I found out over the next few weeks, piece by piece, the way you find out everything in families &mdash; sideways, from other people, way after it would have done any good. Four years ago was right around the time Dana's divorce finalized and she needed somewhere to land. It was also right around the time Dad's memory started slipping, though none of us had a name for it yet. Dana had driven him to the bank "to help him with some paperwork" on a day I was at work. The accounts and the deed were changed that same afternoon.</p>
+<p>When Dana's second serious relationship ended eight years ago and she called me crying at midnight from a parking lot somewhere, I told her she could stay in my spare room until she got back on her feet. I meant a few months. Maybe six. She was still there seven and a half years later, living rent-free in my house, using my car on weekends, eating meals I cooked, while I paid a mortgage and two people's worth of utilities and tried very hard not to feel resentful about it because she was my sister and she was struggling and that's what family does.</p>
 
-  <p>Joint accounts and transfer-on-death deeds don't go through the will. They don't go through probate. Legally, in the eyes of the bank and the county recorder, Dana didn't inherit half of Dad's house and savings. She inherited all of it. The will &mdash; the one that said fifty-fifty, the one Dad had told both of us about for fifteen years &mdash; was, for those two specific assets, just a piece of paper.</p>
+<p>She did get back on her feet, around five years ago. She got a stable job, a decent salary, a social life that kept her out of the house most evenings. She stopped needing me the way she had needed me before. She started talking about eventually getting her own place. "Eventually" is a word that can mean anything, and in Dana's usage it appeared to mean: not yet, and possibly not soon.</p>
 
-  <p>I won't pretend I didn't think about fighting it. I talked to a lawyer of my own, who told me, gently, that contesting a transfer like this &mdash; especially with a parent whose cognitive decline wasn't formally documented until later &mdash; would mean dragging my sister into court, dragging my dead father's medical history into the open, and probably spending more in legal fees than I'd ever recover. "You could win," she said. "You could also spend two years and forty thousand dollars finding out you won't."</p>
+<p>My father's health declined in his final two years. Not catastrophically, not suddenly, but steadily — the way an old house settles, with small signs that accumulate into a larger picture if you know how to read them. His memory became unreliable. He repeated himself. He got confused about dates and occasionally about names. His doctor used the word "early-stage" in a way that felt both reassuring and ominous. I increased my visits. I organized his medications. I was there, as I had always been there, because being there was what I did.</p>
 
-  <p>So here's what I did instead. I told Dana I wasn't going to fight her in court. And then I told her she had until the end of the month to find her own apartment, because the spare room I'd been letting her live in rent-free for five years was, as of the first of next month, going to be a home office.</p>
+<p>Dana came to Sunday dinners and was charming and warm and made my father laugh, which she was always good at. She was present in the way that feels sufficient from the outside and isn't.</p>
 
-  <p>She was stunned. I think some part of her had assumed that because I wasn't going to sue her, nothing was actually going to change &mdash; that I'd go back to being the sister who absorbed costs and smoothed things over and never made anyone uncomfortable. That sister paid for braces and chemo rides and free rent because she thought that's what family did for each other, automatically, in both directions.</p>
+<p>My father died in February, at seventy-eight, from complications following a fall. He had been in the hospital for eleven days, and I was there for most of them, and when he died I was holding his hand, and Dana arrived twenty minutes later, out of breath, and cried in the way that people cry when they are genuinely sad and also slightly aware of being observed.</p>
 
-  <p>It turns out it only worked because I was the only one doing it.</p>
+<p>In the blur of the days that followed — the funeral arrangements, the reception at my house, the cards and casseroles and condolence calls — Dana stepped up in a way that surprised me. She was organized and decisive and handled several things I didn't have the capacity to handle. She took charge of sorting through my father's paperwork, which I was grateful for. "You've been doing everything for years," she said. "Let me do this." I let her.</p>
 
-  <p>Dana moved out six weeks later, into a one-bedroom apartment she now pays for herself, with money from an inheritance she made sure was entirely hers. I didn't get the house, or the savings, or an apology that meant anything. What I got was simpler than that. I stopped being the family's emergency fund. I stopped assuming that "we'll figure it out later" ever actually meant later. And for the first time in twenty years, when someone in my family needs something, I get to decide &mdash; really decide &mdash; whether I want to give it.</p>
+<p>Three weeks after the funeral, we sat down with my father's attorney to go over the estate.</p>
 
-  <p>It's a strange kind of inheritance. But it's mine.</p>
+<p>My father's will, which he had written years ago and mentioned to both of us on several occasions, divided everything equally between Dana and me. The house. His savings. A modest life insurance policy. Everything split down the middle. That was what he had told us, and that was what I expected to hear confirmed at the attorney's office.</p>
+
+<p>The attorney had a folder open on the desk in front of him. He looked at both of us before he spoke, and I noticed, in the way you notice things only in retrospect, that he looked at Dana slightly longer than he looked at me.</p>
+
+<p>"There are some things you should both be aware of," he said. "About four years ago, your father made some changes to how his assets are structured. He added Dana as a joint owner on his checking and savings accounts. He also signed a transfer-on-death deed naming Dana as the sole beneficiary of the property at —" and he read out my father's address.</p>
+
+<p>The room went very quiet.</p>
+
+<p>I looked at Dana. She was looking at the attorney. Her expression was composed in a way that took effort — I could see the effort, the slight tension around her jaw, the careful neutrality of her eyes. She was not surprised. She had known this was coming, and she had sat next to me in the car on the way to this appointment and said nothing.</p>
+
+<p>"Dad wanted it this way," she said, when the silence had stretched long enough that someone had to fill it. She still wasn't looking at me. "He said it would be simpler than going through probate. I was planning to make sure you got your share. Eventually."</p>
+
+<p>There was that word again.</p>
+
+<p>I want to describe for you what it feels like to sit in an attorney's office and understand, in real time, that your sister has spent four years quietly engineering a situation in which your father's estate belongs entirely to her, while you were driving him to his appointments and organizing his medications and sleeping on a cot in his hospital room. I want to find the right words for it but I'm not sure they exist. It is not exactly rage, though rage is part of it. It is something more like vertigo — the sudden loss of your footing on ground you believed was solid.</p>
+
+<p>The attorney explained the legal mechanics in careful, neutral language. Joint accounts and transfer-on-death deeds are not governed by a will. They pass directly to the named owner or beneficiary upon death, outside of probate, regardless of what the will says. The will that named both of us equally was, for those specific assets, a document without teeth. Dana had not violated the law. She had simply understood how the law worked and used that understanding, over four years, while our father's memory was becoming unreliable and his trust in her was absolute.</p>
+
+<p>"When did he add you to the accounts?" I asked Dana. I kept my voice level. I am my father's daughter.</p>
+
+<p>She told me a date. I did the math. Our father had been eighteen months out of his first hospitalization. His doctor had recently mentioned, for the first time, that his memory was concerning. Dana had gone through her own difficult period around that time — a job loss, money problems she had mentioned to me in vague terms without specifics.</p>
+
+<p>Four years ago. When he was vulnerable and she needed money and I was busy believing that my family was exactly what it appeared to be.</p>
+
+<p>"I'm going to need some time," I said to the attorney.</p>
+
+<p>He nodded. He had the expression of a man who had seen this before.</p>
+
+<p>Dana reached out and touched my arm in the parking lot afterward. "Caroline, I promise, we'll figure this out. I just need a little time to —"</p>
+
+<p>"How long have you been planning this?" I asked.</p>
+
+<p>She pulled her hand back. "That's not fair."</p>
+
+<p>"How long?" I said again.</p>
+
+<p>She didn't answer. She got in her car and drove away, and I stood in the parking lot of my father's attorney's office and understood that I had been subsidizing my sister's life for seven and a half years while she was, at some point during those same years, quietly making sure that when our father died, there would be nothing left for me.</p>
+
+<p>I drove home. Dana's things were still in my spare room — her clothes, her books, the small accumulation of belongings that had expanded slowly over seven and a half years until they filled the space completely. She had a key to my house. She had a parking spot in my driveway. She had a seat at my kitchen table.</p>
+
+<p>I sat in my car in my own driveway for a long time, thinking about twenty years. Thinking about the appointments and the medications and the hospital cots. Thinking about the braces I had quietly paid for my niece three years ago when Dana said she couldn't swing it. Thinking about the night I had driven forty minutes in a rainstorm to bring Dana dinner because she was having a hard week.</p>
+
+<p>Thinking about the word <em>eventually</em>, and what it meant when the person saying it had already taken everything.</p>
+
+<p>I went inside. I found an attorney of my own the next morning. And I had a conversation with Dana that I had been too generous, for too long, to have.</p>
+
+<p>That conversation did not go the way Dana expected it to go.</p>
+
+<p style="margin-top: 48px; padding: 24px; background: var(--navy); color: var(--paper-soft); border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7;">
+  <strong style="display:block; color: var(--lamp); margin-bottom: 8px;">Episode 2 — Coming Soon</strong>
+  Caroline finds out exactly how deep Dana's plan went — and delivers a consequence her sister never saw coming. In Episode 2, the attorney gets involved and Caroline has one final conversation with Dana that changes everything.
+  <br><br>
+  <em>If this story hit close to home, share it. Someone you know needs to read this today.</em>
+</p>
+
 </article>
 
 <footer class="site-footer">

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="I didn't say a word in the meeting. I just forwarded one email to the right person.">
+<title>My Boss Took Credit for My Idea in the Meeting, So I Made Sure It Never Happened Again — Tell Me Everything</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===================================================
+   Tell Me Everything — story site design system
+   =================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --navy: #243447;
+  --navy-deep: #1A2533;
+  --paper: #F1E8D8;
+  --paper-soft: #FAF6ED;
+  --ink: #2B2520;
+  --ink-soft: #6B6157;
+  --lamp: #E8A33D;
+  --rust: #C1502E;
+  --teal: #4A7A6E;
+  --plum: #9C5A8C;
+  --line: #DDD2BC;
+  --max: 1080px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* ===== Layout helpers ===== */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+.read { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== Header / Nav ===== */
+.site-header {
+  background: var(--navy);
+  color: var(--paper-soft);
+  padding: 20px 0;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--paper-soft);
+}
+.logo span { color: var(--lamp); }
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.nav-links a { text-decoration: none; color: var(--paper-soft); opacity: 0.85; transition: opacity .2s; }
+.nav-links a:hover, .nav-links a:focus-visible { opacity: 1; }
+
+/* ===== Hero ===== */
+.hero {
+  background: var(--navy);
+  color: var(--paper-soft);
+  padding: 64px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,163,61,0.35), transparent 70%);
+  top: -120px;
+  right: -80px;
+  pointer-events: none;
+}
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lamp);
+  margin: 0 0 16px;
+  position: relative;
+}
+.hero h1, .story-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+  margin: 0 0 20px;
+  max-width: 18ch;
+  position: relative;
+}
+.hero p.excerpt {
+  font-size: 18px;
+  max-width: 60ch;
+  color: #D9CFC1;
+  margin: 0 0 28px;
+  position: relative;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  background: var(--lamp);
+  color: var(--navy-deep);
+  padding: 12px 22px;
+  border-radius: 4px;
+  text-decoration: none;
+  position: relative;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover, .btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+
+/* ===== Ad slots ===== */
+.ad-slot {
+  margin: 40px auto;
+  max-width: var(--max);
+  padding: 0 24px;
+}
+.ad-slot--inline {
+  max-width: none;
+  padding: 0;
+  margin: 8px 0 32px;
+}
+.ad-slot__inner { display: none; /* Remove this line after adding real AdSense code */
+  border: 1px dashed var(--line);
+  background: var(--paper-soft);
+  color: var(--ink-soft);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 28px;
+  border-radius: 4px;
+}
+
+/* ===== Story grid / cards ===== */
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 28px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.story-card {
+  position: relative;
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  padding: 28px 24px 24px;
+  text-decoration: none;
+  color: var(--ink);
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+  transition: transform .2s ease, box-shadow .2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.story-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 28px 28px 0 0;
+  border-color: var(--lamp) transparent transparent transparent;
+}
+.story-card:hover, .story-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(36,52,71,0.12);
+}
+.tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  width: fit-content;
+}
+.tag--family { color: var(--rust); }
+.tag--karma { color: var(--teal); }
+.tag--work { color: var(--navy); }
+.tag--marriage { color: var(--plum); }
+.tag--onlight { color: var(--paper-soft); border-color: var(--paper-soft); }
+
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+}
+.card-excerpt {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 0;
+  flex-grow: 1;
+}
+.card-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+/* ===== Story page ===== */
+.story-page-header {
+  background: var(--navy);
+  color: var(--paper-soft);
+  padding: 56px 0 48px;
+}
+.story-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #D9CFC1;
+  letter-spacing: 0.04em;
+  margin-top: 16px;
+}
+.story-body {
+  padding: 48px 40px;
+  font-size: 20px;
+  line-height: 1.9;
+  font-weight: 400;
+}
+.story-body p:first-of-type { font-size: 20px; }
+.story-body p { margin: 0 0 24px; }
+.story-body p:first-of-type { font-size: 21px; }
+.story-body h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 40px 0 16px;
+}
+.story-body h2:first-child { margin-top: 0; }
+.drop-cap:first-letter {
+  font-size: 20px;
+  font-weight: 400;
+  float: none;
+  color: inherit;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: var(--navy-deep);
+  color: #B9AFA1;
+  padding: 40px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+.site-footer a { color: var(--paper-soft); text-decoration: none; }
+.site-footer a:hover, .site-footer a:focus-visible { text-decoration: underline; }
+.footer-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  flex-wrap: wrap;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .hero { padding: 48px 0 56px; }
+  .story-body { font-size: 18px; }
+  .story-page-header { padding: 40px 0 36px; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .story-card, .btn { transition: none; }
+}
+
+/* ===== Focus visibility ===== */
+a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--lamp);
+  outline-offset: 2px;
+}
+
+/* ===== Mobile reading fix ===== */
+@media (max-width: 768px) {
+  .read { padding: 0 28px !important; max-width: 100% !important; }
+  .wrap { padding: 0 28px !important; }
+  .story-body { font-size: 17px; line-height: 1.9; padding: 28px 0 !important; }
+  .story-body p { margin: 0 0 18px; }
+  .story-body h2 { font-size: 20px; margin: 32px 0 14px; }
+  .drop-cap:first-letter { font-size: 46px; }
+  .story-title { font-size: 24px !important; line-height: 1.2 !important; }
+  .story-page-header { padding: 32px 0 28px; }
+  .nav-links { gap: 16px; font-size: 13px; }
+  .logo { font-size: 20px; }
+  .grid { grid-template-columns: 1fr; }
+  .hero { padding: 40px 0 48px; }
+  .hero h1 { font-size: 26px; }
+  .hero p.excerpt { font-size: 16px; }
+  .site-footer { padding: 28px 0; }
+  article.read.story-body { padding-left: 28px !important; padding-right: 28px !important; }
+}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="logo">Tell Me <span>Everything</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#stories">Stories</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="story-page-header">
+  <div class="read">
+    <span class="tag tag--onlight">Work</span>
+    <h1 class="story-title" style="margin-top:16px;">My Boss Took Credit for My Idea in the Meeting, So I Made Sure It Never Happened Again</h1>
+    <p class="story-meta">Episode 1 &middot; 17 min read &middot; Workplace &middot; Justice &middot; Career</p>
+  </div>
+</section>
+
+<div class="ad-slot">
+  <div class="ad-slot__inner">Ad space</div>
+</div>
+
+<article class="read story-body">
+
+<p class="drop-cap">I had been working on the proposal for twenty-six days. I know the exact number because I kept a note in my phone — not because I was tracking my hours or planning to present a bill, but because I am the kind of person who marks the beginning of things, and this particular thing had felt important from the start. The proposal was for a complete overhaul of our client onboarding process, which had not been updated in any meaningful way since the company was a fraction of its current size and which was, by any objective measure, a slow-motion disaster that was costing us clients and money and goodwill that we couldn't afford to keep losing.</p>
+
+<p>My name is Maya, and I was, at the time of these events, a senior project coordinator at a mid-sized marketing firm where I had worked for four years. I was good at my job. I knew I was good at my job, not in an arrogant way but in the way that comes from doing a thing consistently well and accumulating evidence of that over time. I had received strong performance reviews. I had been promoted once. I was, by all available indicators, on a trajectory that felt, if not exactly exciting, then at least solid and forward-moving.</p>
+
+<p>My direct manager was a man named Greg. Greg had been at the company for nine years and had the comfortable authority of someone who had been around long enough that his position was no longer something he had to work to maintain. He was good with clients, personable in meetings, quick with the kind of easy confidence that reads well in a room. He was not, in my assessment, particularly strategic. He was not someone who generated ideas. He was someone who recognized good ideas when he encountered them and knew how to present them in a way that landed well with the people above him.</p>
+
+<p>I had understood this about Greg for most of the four years I worked for him. I had not considered it a problem, because understanding the actual distribution of intellectual labor in a workplace is simply part of navigating one. I did my work. My work was good. Greg reflected that goodness upward in his own way. The arrangement had an unspoken logic to it that I had accepted without examining too carefully.</p>
+
+<p>What I had not fully understood was how far Greg was willing to take that logic.</p>
+
+<p>The onboarding proposal started, as many of my projects started, with a problem I couldn't stop thinking about. New clients at our firm went through a process that took, on average, nineteen days from contract signing to active campaign launch. Nineteen days during which they were in a kind of limbo — committed, paying, but not yet seeing any return on their investment. They were anxious during those nineteen days in a way that damaged the relationship before it had fully formed. We lost two clients in my first year alone during the onboarding period — not because we did anything wrong, exactly, but because the anxiety of those nineteen days had calcified into doubt, and doubt is hard to recover from.</p>
+
+<p>I started thinking about a different way to structure it. I mapped the process out on a Saturday morning at my kitchen table, just for myself, because I find that kind of mapping satisfying. I identified which steps were genuinely sequential and which were sequential only because that was how we had always done them. I found places where parallel processes could replace linear ones. I found redundancies. I found a three-day stretch in the middle of the process that existed solely because of a handoff between two departments that communicated primarily by forwarding emails to each other and hoping for the best.</p>
+
+<p>When I was done mapping, I had a process that could run in four to five days. Not nineteen. Four to five.</p>
+
+<p>I spent the next three weeks building out the full proposal — the process redesign, the implementation timeline, the projected cost of the transition, the projected savings. I ran the numbers three different ways to make sure they were defensible. I created a pilot program structure that would let us test the new process with a small cohort of new clients before committing the whole company to the change. I designed it to be airtight, because I knew that in our company, good ideas died in meetings if they couldn't withstand pushback, and I wanted this one to live.</p>
+
+<p>Two days before our quarterly planning meeting — the meeting where I had been planning to present this — I sent the proposal to Greg. It was a professional courtesy. He was my manager. I wanted his input before I presented to the broader team. I attached the full document and wrote a short note: "Wanted to get your thoughts before I bring this to the team Thursday."</p>
+
+<p>Greg replied within an hour. One line: "Great work, let's discuss before the meeting."</p>
+
+<p>We did not discuss before the meeting. I sent a follow-up the next morning suggesting a thirty-minute call. He replied that he was slammed but that we would catch up beforehand. We did not catch up beforehand. I arrived at the meeting having not spoken to Greg since I sent the proposal, which I told myself was fine — he was busy, and I was prepared to present it myself.</p>
+
+<p>The meeting was in the large conference room, the one with the good screen. There were fourteen people in the room, including our director, a woman named Sandra who had joined the company eight months earlier and who was, in my observation, sharp and observant and not easily impressed. Greg sat at the head of the table, as he always did. I sat midway down, laptop open, my notes in front of me.</p>
+
+<p>Greg opened the meeting with the usual rundown of quarterly metrics. Then he said, "Before we get into the individual project updates, I want to share something I've been developing." He clicked to a slide.</p>
+
+<p>It was my process diagram. My numbers. My pilot program structure. The language in the third bullet point on the second slide was, word for word, a sentence from my proposal.</p>
+
+<p>I sat very still.</p>
+
+<p>Greg walked through the proposal for twelve minutes. He presented it fluently, because he had had two days to read it carefully, and because he was, whatever else he was, a skilled presenter. He answered two questions from the room — both of which I had anticipated in the document and addressed — by referencing points that were, again, directly from my work.</p>
+
+<p>Sandra, when he finished, said: "Greg, this is exactly the kind of thinking we need more of. Can you own the rollout on this?"</p>
+
+<p>Greg said: "Absolutely. I'd love to."</p>
+
+<p>I looked down at my laptop. I looked at the original proposal still open in a tab. I looked at the slide on the screen, which was my diagram, which had my organizational logic in it, which had come from a Saturday morning at my kitchen table twenty-some days ago.</p>
+
+<p>I did not say anything. Not in that meeting.</p>
+
+<p>I have thought many times about why I didn't speak up in the room, and the honest answer is that I ran the calculation very quickly and didn't like any of the outcomes. If I said "actually, that's my proposal," I was the person who embarrassed their manager in front of the director and a room full of colleagues, and whatever the rights and wrongs of it, that was a story that would stick to me longer than the truth would stick to Greg. If I said nothing and confronted him privately, I had no leverage except my own word against his. If I said nothing at all, I lost the credit for something I had spent twenty-six days building.</p>
+
+<p>None of those options were good. But one of them left me with the most to work with.</p>
+
+<p>I went back to my desk after the meeting. I opened my email. I found the message I had sent Greg two days earlier — the one with the proposal attached, the one with my note at the top, time-stamped, in my name, sent from my address. I found his reply: "Great work, let's discuss."</p>
+
+<p>Then I opened a new email addressed to Sandra.</p>
+
+<p>I wrote: "Hi Sandra, I wanted to follow up on the onboarding proposal that was discussed in this morning's meeting. I've been developing this project for the past several weeks and am attaching the full document here. I wanted to make sure you had the complete picture and to let you know I'm happy to walk through the implementation details whenever would be useful, since I built out the full workflow."</p>
+
+<p>I attached the original proposal. I sent the email. I did not copy Greg.</p>
+
+<p>Then I sat at my desk and waited to see what would happen.</p>
+
+<p>I did not have to wait long.</p>
+
+<p>Sandra replied within two hours. She said the proposal was impressive and that she would like to schedule time with me to go through the implementation plan in detail. She said she was looking forward to it.</p>
+
+<p>The following morning, Greg appeared at my desk. He sat down in the chair across from me without being invited, which he sometimes did, and he was quiet for a moment before he spoke.</p>
+
+<p>"I should have handled the presentation differently," he said. He was looking at a point slightly to the left of my face, in the way of people who are apologizing without quite being willing to make eye contact during it. "The work was yours. I got ahead of myself."</p>
+
+<p>I waited to see if there was more.</p>
+
+<p>"I'd like you to co-lead the rollout with me," he said. "Your name on it, officially."</p>
+
+<p>I thought about twenty-six days. I thought about the Saturday at my kitchen table. I thought about the slide with my diagram on it and Greg's voice presenting it as something he had been developing.</p>
+
+<p>"I appreciate that," I said. "I'll co-lead the rollout."</p>
+
+<p>I did not say anything else. I did not accept his incomplete apology as a complete one or pretend the conversation had resolved something it hadn't. I simply agreed to the thing that was fair and went back to my work.</p>
+
+<p>At the next all-hands meeting, when Sandra asked for a project update, Greg described the onboarding overhaul as "a project Maya and I have been developing together." He said my name first. I noticed that.</p>
+
+<p>The rollout took four months. The new onboarding process reduced our average client activation time from nineteen days to six — not quite the four to five I had projected, but close enough, and close enough was a significant victory. Sandra mentioned it in a company-wide email. My name was in that email.</p>
+
+<p>Greg and I continued to work together. Something had shifted between us — not dramatically, not in a way that anyone else would have noticed, but I felt it and I believe he felt it too. He did not try that particular move again. Not with me. And from what I observed over the following year, not with anyone else on the team either.</p>
+
+<p>I learned something from that experience that I think about whenever I am working on something I care about. Send the email. Document the work. Create the paper trail not because you are expecting to be betrayed but because the truth has a much better chance of surviving if it exists in writing before anyone has a reason to dispute it. The email I sent Sandra took me four minutes to write. The timestamp on my original message to Greg took zero minutes — it was simply there, having existed since the moment I sent it.</p>
+
+<p>The truth was already in someone's inbox before I ever had to say a word. That, I've come to understand, is how you make sure the truth has a fighting chance.</p>
+
+<p style="margin-top: 48px; padding: 24px; background: var(--navy); color: var(--paper-soft); border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7;">
+  <strong style="display:block; color: var(--lamp); margin-bottom: 8px;">Episode 2 — Coming Soon</strong>
+  Maya's onboarding project becomes the most successful initiative of the year — but when a promotion opens up and Greg's name is the only one being discussed, Maya discovers just how far her paper trail can reach.
+  <br><br>
+  <em>Share this with someone who's ever had their work taken. They need to read this.</em>
+</p>
+
+</article>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#privacy">Privacy Policy</a></li>
+    </ul>
+    <p>&copy; 2026 Tell Me Everything. Stories are works of fiction inspired by everyday life.</p>
+  </div>
+</footer>
+
+</body>
+</html>
