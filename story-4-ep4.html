@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The settlement is reached. Patricia returns to her father's house one final time.">
+<title>The Day I Let My Brother Believe He Had Won: Episode 4 — The End — Tell Me Everything</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>/* ===================================================
+   Tell Me Everything — story site design system
+   =================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --navy: #243447;
+  --navy-deep: #1A2533;
+  --paper: #F1E8D8;
+  --paper-soft: #FAF6ED;
+  --ink: #2B2520;
+  --ink-soft: #6B6157;
+  --lamp: #E8A33D;
+  --rust: #C1502E;
+  --teal: #4A7A6E;
+  --plum: #9C5A8C;
+  --line: #DDD2BC;
+  --max: 1080px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* ===== Layout helpers ===== */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+.read { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== Header / Nav ===== */
+.site-header {
+  background: var(--navy);
+  color: var(--paper-soft);
+  padding: 20px 0;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--paper-soft);
+}
+.logo span { color: var(--lamp); }
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.nav-links a { text-decoration: none; color: var(--paper-soft); opacity: 0.85; transition: opacity .2s; }
+.nav-links a:hover, .nav-links a:focus-visible { opacity: 1; }
+
+/* ===== Hero ===== */
+.hero {
+  background: var(--navy);
+  color: var(--paper-soft);
+  padding: 64px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,163,61,0.35), transparent 70%);
+  top: -120px;
+  right: -80px;
+  pointer-events: none;
+}
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lamp);
+  margin: 0 0 16px;
+  position: relative;
+}
+.hero h1, .story-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+  margin: 0 0 20px;
+  max-width: 18ch;
+  position: relative;
+}
+.hero p.excerpt {
+  font-size: 18px;
+  max-width: 60ch;
+  color: #D9CFC1;
+  margin: 0 0 28px;
+  position: relative;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  background: var(--lamp);
+  color: var(--navy-deep);
+  padding: 12px 22px;
+  border-radius: 4px;
+  text-decoration: none;
+  position: relative;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover, .btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+
+/* ===== Ad slots ===== */
+.ad-slot {
+  margin: 40px auto;
+  max-width: var(--max);
+  padding: 0 24px;
+}
+.ad-slot--inline {
+  max-width: none;
+  padding: 0;
+  margin: 8px 0 32px;
+}
+.ad-slot__inner { display: none; /* Remove this line after adding real AdSense code */
+  border: 1px dashed var(--line);
+  background: var(--paper-soft);
+  color: var(--ink-soft);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 28px;
+  border-radius: 4px;
+}
+
+/* ===== Story grid / cards ===== */
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 28px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.story-card {
+  position: relative;
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  padding: 28px 24px 24px;
+  text-decoration: none;
+  color: var(--ink);
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+  transition: transform .2s ease, box-shadow .2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.story-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 28px 28px 0 0;
+  border-color: var(--lamp) transparent transparent transparent;
+}
+.story-card:hover, .story-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(36,52,71,0.12);
+}
+.tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  width: fit-content;
+}
+.tag--family { color: var(--rust); }
+.tag--karma { color: var(--teal); }
+.tag--work { color: var(--navy); }
+.tag--marriage { color: var(--plum); }
+.tag--onlight { color: var(--paper-soft); border-color: var(--paper-soft); }
+
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+}
+.card-excerpt {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 0;
+  flex-grow: 1;
+}
+.card-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+/* ===== Story page ===== */
+.story-page-header {
+  background: var(--navy);
+  color: var(--paper-soft);
+  padding: 56px 0 48px;
+}
+.story-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #D9CFC1;
+  letter-spacing: 0.04em;
+  margin-top: 16px;
+}
+.story-body {
+  padding: 48px 40px;
+  font-size: 20px;
+  line-height: 1.9;
+  font-weight: 400;
+}
+.story-body p:first-of-type { font-size: 20px; }
+.story-body p { margin: 0 0 24px; }
+.story-body p:first-of-type { font-size: 21px; }
+.story-body h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 40px 0 16px;
+}
+.story-body h2:first-child { margin-top: 0; }
+.drop-cap:first-letter {
+  font-size: 20px;
+  font-weight: 400;
+  float: none;
+  color: inherit;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: var(--navy-deep);
+  color: #B9AFA1;
+  padding: 40px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+.site-footer a { color: var(--paper-soft); text-decoration: none; }
+.site-footer a:hover, .site-footer a:focus-visible { text-decoration: underline; }
+.footer-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  flex-wrap: wrap;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .hero { padding: 48px 0 56px; }
+  .story-body { font-size: 18px; }
+  .story-page-header { padding: 40px 0 36px; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .story-card, .btn { transition: none; }
+}
+
+/* ===== Focus visibility ===== */
+a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--lamp);
+  outline-offset: 2px;
+}
+
+/* ===== Mobile reading fix ===== */
+@media (max-width: 768px) {
+  .read { padding: 0 28px !important; max-width: 100% !important; }
+  .wrap { padding: 0 28px !important; }
+  .story-body { font-size: 17px; line-height: 1.9; padding: 28px 0 !important; }
+  .story-body p { margin: 0 0 18px; }
+  .story-body h2 { font-size: 20px; margin: 32px 0 14px; }
+  .drop-cap:first-letter { font-size: 46px; }
+  .story-title { font-size: 24px !important; line-height: 1.2 !important; }
+  .story-page-header { padding: 32px 0 28px; }
+  .nav-links { gap: 16px; font-size: 13px; }
+  .logo { font-size: 20px; }
+  .grid { grid-template-columns: 1fr; }
+  .hero { padding: 40px 0 48px; }
+  .hero h1 { font-size: 26px; }
+  .hero p.excerpt { font-size: 16px; }
+  .site-footer { padding: 28px 0; }
+  article.read.story-body { padding-left: 28px !important; padding-right: 28px !important; }
+}
+</style>
+</head>
+<body><header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="logo">Tell Me <span>Everything</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#stories">Stories</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</header>
+<section class="story-page-header">
+  <div class="read">
+    <span class="tag tag--onlight">Family</span>
+    <h1 class="story-title" style="margin-top:16px;">The Day I Let My Brother Believe He Had Won</h1>
+    <p class="story-meta">Episode 4 &middot; 20 min read &middot; Family &middot; Betrayal &middot; Inheritance</p>
+  </div>
+</section>
+
+<div class="ad-slot">
+  <div class="ad-slot__inner">Ad space</div>
+</div>
+
+<article class="read story-body">
+
+<p class="drop-cap">The settlement agreement was fourteen pages long and written in the kind of language that turns ordinary human events into something that sounds like it happened to no one in particular. It referred to my brother as "the first party" and to me as "the second party" and to my father's estate as "the subject assets" and to the entire history of what had happened between us as "the disputed matter." Gail walked me through it section by section on a Wednesday afternoon in her office, and I initialed each page where indicated, and at the end I signed my full name at the bottom of the final page and put the pen down on her desk.</p>
+
+<p>The terms were close to what Gail had originally offered Kevin ten months earlier. He received the house, which he had already been managing and which I suspected he needed to sell to address his debts, though that was no longer my concern. I received my equal share of the liquid assets, the retirement accounts, and the proceeds of the insurance policy, which had already been paid out to me months earlier and which I had kept in a separate account, untouched, while the proceedings played out. The forty thousand dollars in wire transfers from our father to Kevin, which had surfaced during the deposition and which had changed the trajectory of everything, were acknowledged in the agreement as advances against Kevin's inheritance share, meaning they were deducted from his portion of the settlement.</p>
+
+<p>Kevin had not known, when he brought those bank records to his deposition, that they contained the evidence that would cost him the most. Gail had described the moment his attorney realized this as one of the more satisfying things she had witnessed in twenty-six years of practice, and she said this with the understatement of someone who had seen a great deal.</p>
+
+<p>Kevin signed three days after I did. Gail called to tell me when his signature was confirmed, and her voice had its usual measured quality but with something settled underneath it, the way a room sounds after a long noise has finally stopped. "It's done," she said. I thanked her, and I meant it more completely than I could adequately express over the phone, and she said she was glad it had worked out and that I should call her if I ever needed anything, and that was the end of our professional relationship.</p>
+
+<p>I sat in the parking lot outside Gail's building after that final call and let the silence be what it was for a few minutes. I had expected to feel something dramatic. Triumph, or relief, or the particular satisfaction of a wrong being corrected. What I actually felt was quieter than any of those things. It was closer to the feeling you get when a task you have been carrying for a very long time is finally finished. Not happiness exactly, but the absence of the weight. A kind of stillness.</p>
+
+<p>I drove to Dunmore Street.</p>
+
+<p>I had not been back to my father's house since the Saturday morning when I had found the lockbox, almost a year earlier. Kevin had been managing the property during the proceedings, which was part of our interim agreement, and I had stayed away because there was no practical reason to go and because I was not sure I was ready. Now the settlement was signed and the estate was being distributed and the house was Kevin's to do with as he chose, and I understood that if I was going to go back, I needed to go before that door closed.</p>
+
+<p>I parked in front and sat in the car for a moment, looking at the house. It was a Wednesday afternoon in November, and the light was the particular flat grey of late autumn, and the oak tree in the front yard had lost most of its leaves, and the house looked smaller than it had when I was a child, the way everything from childhood looks smaller when you return to it as an adult. It looked like itself. It looked like the place where I had grown up and where my parents had built their life and where my father had lived alone for the years after my mother died, moving through the rooms with the quiet self-sufficiency of a man who had decided not to be a burden to anyone.</p>
+
+<p>I still had my key. I let myself in through the back door, as I always had.</p>
+
+<p>The house had been cleaned and organized since my last visit. Kevin, or someone Kevin had hired, had gone through the rooms and sorted things, boxed up some items, cleared surfaces that had been cluttered. The particular lived-in feeling of the house, the accumulation of a life in all its small specifics, had been reduced to something more manageable and less personal. It was still recognizably my father's house, but it was becoming something else. A property. A transaction.</p>
+
+<p>I walked through the kitchen and the living room and down the hall. I was not entirely sure what I had come for. Some part of me simply needed to be in the space one more time, to walk through it with the knowledge that what my father had intended was going to happen, that the people he had loved were going to receive what he had meant for them to have. I needed to feel that in the house itself, in the rooms where he had lived.</p>
+
+<p>I went to the spare room.</p>
+
+<p>The lockbox was still under the bed. Kevin had not taken it, perhaps had not known what to do with it, or perhaps had simply not thought about it. I pulled it out and sat on the edge of the bed with it in my lap. I opened it with the combination from the masking tape inside the sock drawer, which I had memorized on my first visit and which turned out to be my parents' wedding anniversary, a detail that made me close my eyes for a moment.</p>
+
+<p>The original will was still inside. The insurance policy was gone because I had taken it, photographed and documented and submitted as evidence, but the original documents were still there, along with the folder of financial records and the envelope of old photographs I had noticed on my first visit but not opened.</p>
+
+<p>I took out the envelope now. It was a standard white envelope with no writing on the outside. Inside were photographs, maybe thirty of them, the older kind printed on photo paper, the colors slightly faded at the edges. I went through them slowly.</p>
+
+<p>They were pictures of me. Not exclusively, but predominantly. Me as a baby, me as a toddler, me at various ages through childhood and adolescence. My school photographs, the ones with the terrible backgrounds and the slightly awkward smiles. A photograph from my high school graduation where I was wearing a cap that was slightly too large and was grinning in a way I did not remember grinning but that looked completely genuine. A photograph from my wedding, just my father and me, taken before the ceremony, his hand over mine, both of us looking at the camera with an expression that I can only describe as mutual recognition.</p>
+
+<p>There were photographs of Kevin too, and of our mother, and of family gatherings and holidays and the ordinary moments that accumulate into a life. But the photographs of me were the ones my father had gathered separately, had placed in their own envelope, had kept in the lockbox alongside the documents he considered most important.</p>
+
+<p>At the back of the envelope was a single index card. My father's handwriting, which had the slightly cramped quality of someone who had spent decades writing on chalkboards and had never quite adapted to the smaller scale of personal correspondence. The ink was blue, and the card had been folded in half and then unfolded again, as though it had been written and reconsidered and kept anyway.</p>
+
+<p>It said: "For Patricia. Who always showed up. I am sorry I did not say this more while I could. You were the best of what your mother and I tried to do. The house is complicated. The rest is yours. Take care of yourself the way you always took care of everyone else. Love, Dad."</p>
+
+<p>I sat on the edge of my old bed in my father's house on a grey November afternoon and I held that index card for a long time. The light outside the window changed as the afternoon moved toward evening. The house was quiet in the way that houses are quiet when they are no longer inhabited by the person who gave them their particular sound.</p>
+
+<p>I thought about twenty years of showing up. I thought about my father, who had not said the things on that card while he was alive because he was not a man who said things like that out loud, but who had written them down and put them in a box and kept them somewhere he knew I would eventually look. I thought about the insurance policy and the original will and the photographs and this card, all of it gathered and kept and left for me to find, a long letter written in the language of careful, quiet actions rather than words.</p>
+
+<p>I thought about Kevin signing the settlement agreement three days ago. I thought about the house that would be his now, that he would sell most likely, that would become someone else's and eventually lose all of its connection to the people who had made it what it was. I thought about whether that made me sad, and I found that it did, but not in a way that felt unresolvable. Things ended. Houses changed hands. Families became whatever they became over time. You could not hold all of it in place by needing it to stay.</p>
+
+<p>What you could hold was smaller than that, and more durable. A piece of paper in a lockbox. A handwritten card. The knowledge, which I carried with me when I finally stood up and put the card in my coat pocket and put the envelope back in the box and locked it and slid it back under the bed for the last time, that my father had seen me. That he had known who I was and what I had done and what it had cost me and had loved me specifically for it, not in spite of it.</p>
+
+<p>I let myself out through the back door. I locked it behind me. I drove home to my husband and my children and my kitchen, where dinner needed to be made and homework needed to be checked and the ordinary texture of an ordinary life was waiting for me to return to it.</p>
+
+<p>I kept the index card. It is in a frame now, on the bookshelf in my bedroom, next to a photograph of my parents from before I was born, young and unguarded and looking at each other with an expression that tells you everything about what they were to each other. I read it sometimes, not because I need to be reminded of what it says, but because some things deserve to be returned to.</p>
+
+<p>It has been almost two years now since the settlement. Kevin sold the house last spring. We speak occasionally, the way people speak when the thing that held them together is gone and what remains is the habit of occasional contact. I do not know what he thinks about when he thinks about what happened. I do not know if he has made peace with it or if he carries it the way I imagine he must carry it. I have stopped trying to know things about Kevin that Kevin has not chosen to share with me.</p>
+
+<p>What I know is my own part of it. I know that my father left me more than money. He left me the knowledge that he had watched and understood and loved me in the specific way that you love someone you have paid close attention to. He left me, in a lockbox under a bed in a spare room, the evidence of a life spent being exactly the kind of person my mother and he had tried to raise.</p>
+
+<p>I showed up. For twenty years, I showed up. And at the end of everything, when there was no longer anyone left to show up for, my father found a way to tell me that he had noticed.</p>
+
+<p>That is not nothing. That is, in fact, everything that matters.</p>
+
+<p style="margin-top: 48px; padding: 24px; background: var(--navy); color: var(--paper-soft); border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7;">
+  <strong style="display:block; color: var(--lamp); margin-bottom: 8px; font-size: 18px;">The End</strong>
+  Thank you for reading this story from beginning to end. If it moved you, share it with someone who needs to read it today. And if you have your own story of family, love, and finding your way through something difficult, the comments are open.
+  <br><br>
+  <a href="index.html" style="display:inline-block; margin-top:12px; background: var(--lamp); color: var(--navy-deep); font-weight: 700; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-size: 15px;">Read More Stories &rarr;</a>
+</p>
+
+</article>
+<footer class="site-footer">
+  <div class="wrap">
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#privacy">Privacy Policy</a></li>
+    </ul>
+    <p>&copy; 2026 Tell Me Everything. Stories are works of fiction inspired by everyday life.</p>
+  </div>
+</footer>
+</body>
+</html>
